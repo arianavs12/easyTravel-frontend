@@ -2,55 +2,71 @@ import * as React from "react";
 import AppFooter from "../modules/views/AppFooter";
 import AppAppBar from "../modules/views/AppAppBar";
 import withRoot from "../modules/withRoot";
-import { Avatar, Container } from "@mui/material";
+import { Avatar } from "@mui/material";
 import Button from "../modules/components/Button";
+import './profile.css';
+import Typography from "../modules/components/Typography";
+//import Toolbar from '../modules/components/Toolbar';
+//import { Box } from "@mui/system";
 
 function Profile() {
   return (
     <React.Fragment>
       <AppAppBar />
-      <Container>
-        <Avatar
-          sx={{ width: 200, height: 180, marginTop: 5 }}
-          variant="square"
-        />
-        <Button
-          color="secondary"
-          variant="contained"
-          size="large"
-          href="/trips"
-          sx={{ minWidth: 200, padding: 0.5, marginTop: 1 }}
-        >
-          Change photo
-        </Button>
+      <Typography variant="h4" sx={{padding: 1, marginLeft: 15.5}}>
+        WELCOME!
+      </Typography>
+      <div className="profile">
+        <div className="container">
+          <div >
+            <Avatar
+              sx={{ width: 200, height: 180}}
+              variant="square"
+            />
 
-        <Button
-          color="secondary"
-          variant="contained"
-          size="large"
-          href="/trips"
-          sx={{
-            minWidth: 200,
-            mt: 10,
-            mb: 8,
-            position: "relative",
-
-            flexDirection: "column",
-          }}
-        >
-          My Trips
-        </Button>
-
-        <Button
-          color="secondary"
-          variant="contained"
-          size="large"
-          href="/packages"
-          sx={{ minWidth: 200, justifyContent: "space-between" }}
-        >
-          My Packages
-        </Button>
-      </Container>
+            <Button
+              color="secondary"
+              variant="contained"
+              size="large"
+              href="/trips"
+              sx={{ minWidth: 200, padding: 0.5, marginTop: 1 }}
+            >
+              Change photo
+            </Button>
+          </div>
+          <div className="informacion">
+            <div>
+              aqui va info a lado del avatar
+            </div>
+          </div>
+        </div>
+        <div className="buttonTrips">
+          <div>
+          <Button
+              color="secondary"
+              variant="contained"
+              size="large"
+              href="/trips"
+              sx={{ minWidth: 200,}}
+            >
+              My Trips
+            </Button>
+          </div>
+        </div>
+        <div className="buttonPackage">
+          <div>
+          <Button
+              color="secondary"
+              variant="contained"
+              size="large"
+              href="/packages"
+              sx={{ minWidth: 200,}}
+            >
+              My Packages
+            </Button>
+          </div>
+        </div>
+      </div>  
       <AppFooter />
     </React.Fragment>
   );

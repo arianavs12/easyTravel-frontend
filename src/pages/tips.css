@@ -1,0 +1,21 @@
+.tips-container{
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    flex-direction: center;
+    background-color: #eceff1;
+}
+
+.cerezos{
+    margin-left: 10px;
+    width: 200;
+    height: 200;
+}
+.tips{
+    border-style: dashed;
+    border-color: #689f38;
+    border-width: 0.2ch;
+    border-radius: 1%;
+    padding: 1%;
+  
+}

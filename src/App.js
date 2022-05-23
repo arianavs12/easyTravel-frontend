@@ -2,14 +2,7 @@
 import { Routes, Route } from "react-router-dom";
 /* import { getLoggedIn, logout } from "./services/auth";
 import routes from "./config/routes";
-import * as USER_HELPERS from "./utils/userToken";
-import AppAppBar from "./modules/views/AppAppBar";
-import AppFooter from "./modules/views/AppFooter";
-import ProductCTA from "./modules/views/ProductCTA";
-import ProductCategories from "./modules/views/ProductCategories";
-import ProductHero from "./modules/views/ProductHero";
-import ProductHowItWorks from "./modules/views/ProductHowItWorks";
-import ProductSmokingHero from "./modules/views/ProductSmokingHero"; */
+import * as USER_HELPERS from "./utils/userToken";*/
 import withRoot from "./modules/withRoot";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";

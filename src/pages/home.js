@@ -1,5 +1,5 @@
 //import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+//import { Routes, Route } from "react-router-dom";
 //import { getLoggedIn, logout } from "./services/auth";
 //import routes from "./config/routes";
 //import * as USER_HELPERS from "./utils/userToken";
@@ -11,12 +11,11 @@ import ProductHero from "../modules/views/ProductHero";
 import ProductHowItWorks from "../modules/views/ProductHowItWorks";
 import ProductSmokingHero from "../modules/views/ProductSmokingHero";
 import ProductValues from "../modules/views/ProductValues";
-import withRoot from '../modules/withRoot';
-import SignUp from "./SignUp";
+import withRoot from "../modules/withRoot";
 
 
 function App() {
-/* const [user, setUser] = useState(null);
+  /* const [user, setUser] = useState(null);
 
   useEffect(() => {
     const accessToken = USER_HELPERS.getUserToken();
@@ -59,15 +58,15 @@ function App() {
   } */
   return (
     <div className="App">
-      <AppAppBar/>
-      <ProductHero/>
-      <ProductValues/>
-      <ProductCategories/>
-      <ProductHowItWorks/>
-      <ProductCTA/>
-      <ProductSmokingHero/>
-      <AppFooter/> 
+      <AppAppBar />
+      <ProductHero />
+      <ProductValues />
+      <ProductCategories />
+      <ProductHowItWorks />
+      <ProductCTA />
+      <ProductSmokingHero />
+      <AppFooter />
     </div>
   );
 }
-export default withRoot(App); 
+export default withRoot(App);

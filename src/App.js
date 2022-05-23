@@ -10,19 +10,18 @@ import ProductCategories from "./modules/views/ProductCategories";
 import ProductHero from "./modules/views/ProductHero";
 import ProductHowItWorks from "./modules/views/ProductHowItWorks";
 import ProductSmokingHero from "./modules/views/ProductSmokingHero"; */
-import withRoot from './modules/withRoot';
+import withRoot from "./modules/withRoot";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
-import Home from "./pages/home"
+import Home from "./pages/home";
 import Packages from "./pages/Packages";
 import Reviews from "./pages/Reviews";
 import Tips from "./pages/Tips";
 import Trips from "./pages/Trips";
 import Profile from "./pages/Profile";
 
-
 function App() {
-/*   const [user, setUser] = useState(null);
+  /*   const [user, setUser] = useState(null);
 
   useEffect(() => {
     const accessToken = USER_HELPERS.getUserToken();
@@ -66,16 +65,15 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="*" element={<Home/>} /> 
-        <Route path="/signup" element={<SignUp/>} />
+        <Route path="*" element={<Home />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
-        <Route path='/packages' element={<Packages />} />
-        <Route path='/reviews' element={<Reviews />} />
-        <Route path="/tips" element={<Tips/>} />
+        <Route path="/packages" element={<Packages />} />
+        <Route path="/reviews" element={<Reviews />} />
+        <Route path="/tips" element={<Tips />} />
         <Route path="/trips" element={<Trips />} />
         <Route path="/profile" element={<Profile />} />
-
-     </Routes>
+      </Routes>
     </div>
   );
 }

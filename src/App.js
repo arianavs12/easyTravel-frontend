@@ -7,7 +7,6 @@ import withRoot from "./modules/withRoot";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
 import Home from "./pages/home";
-import Packages from "./pages/Packages";
 import Reviews from "./pages/Reviews";
 import Tips from "./pages/Tips";
 import Trips from "./pages/Trips";
@@ -61,7 +60,6 @@ function App() {
         <Route path="*" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
-        <Route path="/packages" element={<Packages />} />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/tips" element={<Tips />} />
         <Route path="/trips" element={<Trips />} />

@@ -23,14 +23,15 @@ function Profile() {
               sx={{ width: 200, height: 180}}
               variant="square"
             />
-
-            <Button
+            <Button 
               color="secondary"
               variant="contained"
               size="large"
-              href="/trips"
+
               sx={{ minWidth: 200, padding: 0.5, marginTop: 1 }}
             >
+            {/* <input 
+            type='file' name="input"/> */}
               Change photo
             </Button>
           </div>
@@ -50,19 +51,6 @@ function Profile() {
               sx={{ minWidth: 200,}}
             >
               My Trips
-            </Button>
-          </div>
-        </div>
-        <div className="buttonPackage">
-          <div>
-          <Button
-              color="secondary"
-              variant="contained"
-              size="large"
-              href="/packages"
-              sx={{ minWidth: 200,}}
-            >
-              My Packages
             </Button>
           </div>
         </div>

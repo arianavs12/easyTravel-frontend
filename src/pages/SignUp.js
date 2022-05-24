@@ -34,6 +34,8 @@ function SignUp() {
 
   const handleSubmit = () => {
     setSent(true);
+
+    //aqui va el axios
   };
 
   return (

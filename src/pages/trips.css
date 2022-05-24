@@ -1,10 +1,26 @@
 .trips{
-    background-color: aquamarine;
+    display: flex;
+    align-items: center;
+    flex-direction: center;
+    justify-content: space-between;
+    padding-left: 8%;
+    padding-right: 8%;
 }
-.buttons{
-    background-color: blueviolet;
+.buttons1{
+    display: flex;
+    align-items: center;
+    flex-direction: center;
+    justify-content: space-between;
+    padding-left: 8%;
+    padding-right: 8%;
 }
 
 .text{
-    background-color: brown;
+    display: flex;
+    align-items: center;
+    flex-direction: center;
+    padding-left: 8%;
+    padding-right: 8%;
+    color: #ff4081;
+    font-size: 30px;
 }

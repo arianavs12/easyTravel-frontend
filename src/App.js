@@ -1,8 +1,8 @@
-//import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-/* import { getLoggedIn, logout } from "./services/auth";
-import routes from "./config/routes";
-import * as USER_HELPERS from "./utils/userToken";*/
+import { getLoggedIn, logout } from "./services/auth";
+//import routes from "./config/routes";
+import * as USER_HELPERS from "./utils/userToken";
 import withRoot from "./modules/withRoot";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
@@ -11,9 +11,13 @@ import Reviews from "./pages/Reviews";
 import Tips from "./pages/Tips";
 import Trips from "./pages/Trips";
 import Profile from "./pages/Profile";
+import AllTrips from "./pages/AllTrips"
+import AllReviews from "./pages/AllReviews"
+
 
 function App() {
-  /*   const [user, setUser] = useState(null);
+ const [user, setUser] = useState(null);
+ const [isLoading, setIsLoading] = useState(true); 
 
   useEffect(() => {
     const accessToken = USER_HELPERS.getUserToken();
@@ -53,7 +57,7 @@ function App() {
 
   if (isLoading) {
     return ;
-  } */
+  }
   return (
     <div className="App">
       <Routes>
@@ -61,8 +65,10 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/reviews" element={<Reviews />} />
+        <Route path="/allreviews" element={<AllReviews />} />
         <Route path="/tips" element={<Tips />} />
         <Route path="/trips" element={<Trips />} />
+        <Route path="/alltrips" element={<AllTrips />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
     </div>

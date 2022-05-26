@@ -14,7 +14,7 @@ import ProductValues from "../modules/views/ProductValues";
 import withRoot from "../modules/withRoot";
 
 
-function App() {
+function App(props) {
   /* const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -58,7 +58,7 @@ function App() {
   } */
   return (
     <div className="App">
-      <AppAppBar />
+      <AppAppBar {...props}/>
       <ProductHero />
       <ProductValues />
       <ProductCategories />

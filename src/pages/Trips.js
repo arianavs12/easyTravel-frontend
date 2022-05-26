@@ -4,9 +4,9 @@ import AppAppBar from "../modules/views/AppAppBar";
 import withRoot from "../modules/withRoot";
 import Typography from "../modules/components/Typography";
 import './trips.css'
-import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
-import Button from "../modules/components/Button";
+import Button from '@mui/material/Button';
 
 
 function Trips() {
@@ -27,39 +27,51 @@ function Trips() {
         Please enter the cost for each concept to calculate the estimated value of your trip.
       </Typography>
       <div className="trips">
-      <Box
+      <Stack
       component="form"
       sx={{
-        '& .MuiTextField-root': { m: 1, width: '25ch' },
+        width: '25ch',
       }}
+      spacing={2}
       noValidate
       autoComplete="off"
     >
-     <div>
-     <TextField
-          id="filled-textarea"
-          label="Transport"
-          placeholder="$$$"
-          multiline
-          variant="filled"
-        />
-        <TextField
-          id="filled-textarea"
-          label="Lodging"
-          placeholder="$$$"
-          multiline
-          variant="filled"
-        />
-        <TextField
-          id="filled-multiline-static"
-          label="Description"
-          multiline
-          rows={4}
-          defaultValue="Tell us something about your next trip"
-          variant="filled"
-        />
-      </div>
-      </Box>
+      <TextField
+        hiddenLabel
+        id="filled-hidden-label-small"
+        defaultValue="Small"
+        variant="filled"
+        size="small"
+      />
+      <TextField
+        hiddenLabel
+        id="filled-hidden-label-small"
+        defaultValue="Small"
+        variant="filled"
+        size="small"
+      />
+      <TextField
+        hiddenLabel
+        id="filled-hidden-label-small"
+        defaultValue="Small"
+        variant="filled"
+        size="small"
+      />
+      <TextField
+        hiddenLabel
+        id="filled-hidden-label-small"
+        defaultValue="Small"
+        variant="filled"
+        size="small"
+      />
+      <TextField
+        hiddenLabel
+        id="filled-hidden-label-small"
+        defaultValue="Small"
+        variant="filled"
+        size="small"
+      />
+    </Stack>
       <Button
               color="secondary"
               variant="contained"

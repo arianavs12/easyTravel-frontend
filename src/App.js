@@ -63,16 +63,18 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="*" element={<Home />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/reviews" element={<Reviews />} />
-        <Route path="/allreviews" element={<AllReviews />} />
-        <Route path="/tips" element={<Tips />} />
-        <Route path="/trips" element={<Trips />} />
-        <Route path="/alltrips" element={<AllTrips />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/detail/:id" element={<DetailTrip />} />
+        <Route path="*" element={<Home authenticate={authenticate} user={user} handleLogout={handleLogout}/>}/>
+
+        <Route path="/signup" element={<SignUp authenticate={authenticate} user={user} handleLogout={handleLogout}/>}/>
+        <Route path="/login" element={<LogIn authenticate={authenticate} user={user} handleLogout={handleLogout}/>} />
+        <Route path="/reviews" element={<Reviews authenticate={authenticate} user={user} handleLogout={handleLogout}/>} />
+        <Route path="/allreviews" element={<AllReviews authenticate={authenticate} user={user} handleLogout={handleLogout}/>} />
+        <Route path="/tips" element={<Tips authenticate={authenticate} user={user} handleLogout={handleLogout}/>} />
+        <Route path="/trips" element={<Trips authenticate={authenticate} user={user} handleLogout={handleLogout}/>} />
+        <Route path="/alltrips" element={<AllTrips authenticate={authenticate} user={user} handleLogout={handleLogout}/>} />
+        <Route path="/profile" element={<Profile authenticate={authenticate} user={user} handleLogout={handleLogout}/>} />
+
+        <Route path="/detail/:id" element={<DetailTrip authenticate={authenticate} user={user} handleLogout={handleLogout}/>} />
       </Routes>
     </div>
   );

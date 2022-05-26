@@ -1,36 +1,55 @@
-import * as React from "react";
+import React, { useState } from "react";
+import { login } from "../services/auth";
+import { useNavigate } from "react-router-dom";
+
+import * as PATHS from "../utils/paths";
+import * as USER_HELPERS from "../utils/userToken";
 import { Field, Form, FormSpy } from "react-final-form";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
+import TextField from '@mui/material/TextField';
 import Typography from "../modules/components/Typography";
 import AppFooter from "../modules/views/AppFooter";
 import AppAppBar from "../modules/views/AppAppBar";
+
 import AppForm from "../modules/views/AppForm";
-import { email, required } from "../modules/form/validation";
+// import { email, required } from "../modules/form/validation";
 import RFTextField from "../modules/form/RFTextField";
 import FormButton from "../modules/form/FormButton";
 import FormFeedback from "../modules/form/FormFeedback";
 import withRoot from "../modules/withRoot";
 
-function SignIn() {
+function SignIn({ authenticate }) {
   const [sent, setSent] = React.useState(false);
+  const [form, setForm] = useState({
+    username: "",
+    password: "",
+  });
+  const { username, password } = form;
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-  const validate = (values) => {
-    const errors = required(["email", "password"], values);
+  function handleInputChange(event) {
+    const { name, value } = event.target;
 
-    if (!errors.email) {
-      const emailError = email(values.email);
-      if (emailError) {
-        errors.email = emailError;
+    return setForm({ ...form, [name]: value });
+  }
+
+  function handleFormSubmission(event) {
+    event.preventDefault();
+    const credentials = {
+      username,
+      password,
+    };
+    login(credentials).then((res) => {
+      if (!res.status) {
+        return setError({ message: "Invalid credentials" });
       }
-    }
-
-    return errors;
-  };
-
-  const handleSubmit = () => {
-    setSent(true);
-  };
+      USER_HELPERS.setUserToken(res.data.accessToken);
+      authenticate(res.data.user);
+      navigate(PATHS.HOMEPAGE);
+    });
+  }
 
   return (
     <React.Fragment>
@@ -48,9 +67,7 @@ function SignIn() {
           </Typography>
         </React.Fragment>
         <Form
-          onSubmit={handleSubmit}
-          subscription={{ submitting: true }}
-          validate={validate}
+          onSubmit={handleFormSubmission}
         >
           {({ handleSubmit: handleSubmit2, submitting }) => (
             <Box
@@ -59,7 +76,7 @@ function SignIn() {
               noValidate
               sx={{ mt: 6 }}
             >
-              <Field
+              {/* <Field
                 autoComplete="email"
                 autoFocus
                 component={RFTextField}
@@ -70,8 +87,10 @@ function SignIn() {
                 name="email"
                 required
                 size="large"
+                value={'hola'}
+                onChange={(event) => setEmail(event.target.value)}
               />
-              <Field
+               <Field
                 fullWidth
                 size="large"
                 component={RFTextField}
@@ -82,7 +101,30 @@ function SignIn() {
                 label="Password"
                 type="password"
                 margin="normal"
-              />
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+              /> */}
+              <TextField
+                 fullWidth
+                 label="Username"
+                 margin="normal"
+                 name="username"
+                 required
+                 size="large"
+                value={username}
+                onChange={handleInputChange}
+              />  
+              <TextField
+                 fullWidth
+                 label="Contrasena"
+                 margin="normal"
+                 name="password"
+                 required
+                 size="large"
+                value={password}
+                onChange={handleInputChange}
+              />  
+             
               <FormSpy subscription={{ submitError: true }}>
                 {({ submitError }) =>
                   submitError ? (
@@ -98,7 +140,7 @@ function SignIn() {
                 size="large"
                 color="secondary"
                 fullWidth
-                href="/profile"
+                onClick={handleFormSubmission}
               >
                 {submitting || sent ? "In progress…" : "Sign In"}
               </FormButton>

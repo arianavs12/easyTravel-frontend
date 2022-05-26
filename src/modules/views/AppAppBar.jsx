@@ -11,7 +11,7 @@ const rightLink = {
   ml: 3,
 };
 
-function AppAppBar() {
+function AppAppBar(props) {
   return (
     <div>
       <AppBar position="fixed">
@@ -27,6 +27,17 @@ function AppAppBar() {
             {"EASY TRAVEL "}
           </Link>
           <Box sx={{ flex: 1, display: "flex", justifyContent: "flex-end" }}>
+
+          { props?.user && (
+            <>
+                <button>aca si ya hay user - { props?.user?.username }  { props?.user?._id }</button>
+            </>
+          )}
+
+
+
+            { !props?.user && (
+            <>
             <Link
               color="black"
               variant="h6"
@@ -44,6 +55,8 @@ function AppAppBar() {
             >
               {"Sign Up"}
             </Link>
+            </>
+            )}
           </Box>
         </Toolbar>
       </AppBar>

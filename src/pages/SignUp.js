@@ -15,6 +15,8 @@ import withRoot from "../modules/withRoot";
 
 function SignUp() {
   const [sent, setSent] = React.useState(false);
+  const [ name,setName ] = React.useState("");
+  
 
   const validate = (values) => {
     const errors = required(

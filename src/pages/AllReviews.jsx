@@ -11,7 +11,7 @@ import axios from 'axios';
 function AllReviews () {
   const [mensaje, setMensaje] = useState([])
   useEffect(() => {
-    axios.get('http://localhost:5005/reviews/allreviews')
+    axios.get(`${process.env.REACT_APP_SERVER_URL}/reviews/allreviews`)
     .then(datos => setMensaje(datos.data.reviews))
     .catch(console.log)
   },[])

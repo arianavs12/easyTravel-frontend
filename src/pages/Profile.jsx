@@ -6,8 +6,7 @@ import { Avatar } from "@mui/material";
 import Button from "../modules/components/Button";
 import './profile.css';
 import Typography from "../modules/components/Typography";
-//import Toolbar from '../modules/components/Toolbar';
-//import { Box } from "@mui/system";
+
 
 function Profile() {
   return (
@@ -30,27 +29,43 @@ function Profile() {
 
               sx={{ minWidth: 200, padding: 0.5, marginTop: 1 }}
             >
-            {/* <input 
-            type='file' name="input"/> */}
               Change photo
             </Button>
           </div>
-          <div className="informacion">
-            <div>
-              aqui va info a lado del avatar
-            </div>
-          </div>
+          
         </div>
-        <div className="buttonTrips">
+        <div className="buttons">
           <div>
           <Button
               color="secondary"
               variant="contained"
               size="large"
               href="/trips"
-              sx={{ minWidth: 200,}}
+              sx={{ minWidth: 200, marginTop: 3, padding: 0.5}}
             >
               My Trips
+            </Button>
+          </div>
+          <div>
+            <Button
+              color="secondary"
+              variant="contained"
+              size="large"
+              href="/reviews"
+              sx={{ minWidth: 200, marginTop: 3, padding: 0.5}}
+            >
+              CREATE A Review
+            </Button>
+          </div>
+          <div>
+            <Button
+              color="secondary"
+              variant="contained"
+              size="large"
+              href="/tips"
+              sx={{ minWidth: 200, marginTop: 3, padding: 0.5}}
+            >
+              Travel Tips
             </Button>
           </div>
         </div>

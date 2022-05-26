@@ -4,69 +4,75 @@ import AppAppBar from "../modules/views/AppAppBar";
 import withRoot from "../modules/withRoot";
 import Typography from "../modules/components/Typography";
 import './trips.css'
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Button from "../modules/components/Button";
 
 
-//import Typography from '../modules/components/Typography';
+function Trips() {
 
-function Reviews() {
+  const [value, setValue] = React.useState('Controlled');
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
   return (
     <React.Fragment>
       <AppAppBar />
       <Typography variant="h4" sx={{padding: 2, marginLeft: 12}}>
-      MY NEXT VACATIONS
+        MY NEXT VACATIONS
+      </Typography>
+      <Typography variant="h5" sx={{padding: 2, marginLeft: 12}}>
+        Please enter the cost for each concept to calculate the estimated value of your trip.
       </Typography>
       <div className="trips">
-        <Typography style={{fontSize:30}}>
-          My Trips
-        </Typography>
-        <div>
-          
-        </div>
-      </div>
-      <div className="buttons1">
-        <div>
-        (lista de viajes registrados)
-        </div>
-        <Box
+      <Box
+      component="form"
       sx={{
-        display: 'flex',
-        alignItems: 'center',
-        '& > :not(style)': { m: 1 },
+        '& .MuiTextField-root': { m: 1, width: '25ch' },
       }}
+      noValidate
+      autoComplete="off"
     >
-      <Typography style={{fontSize:30}}>
-          Add a new trip
-        </Typography>
-      <TextField
-        helperText="Please enter your name"
-        id="demo-helper-text-aligned"
-        label="Name"
-      />
-      <TextField
-        helperText=" "
-        id="demo-helper-text-aligned-no-helper"
-        label="Name"
-      />
-    </Box>
-        <div>
-         <AddCircleIcon sx={{ marginRight: 4}}/>
-         <DeleteIcon sx={{ marginRight: 4}}/>
-         <EditIcon/>
-        </div>
+     <div>
+     <TextField
+          id="filled-textarea"
+          label="Transport"
+          placeholder="$$$"
+          multiline
+          variant="filled"
+        />
+        <TextField
+          id="filled-textarea"
+          label="Lodging"
+          placeholder="$$$"
+          multiline
+          variant="filled"
+        />
+        <TextField
+          id="filled-multiline-static"
+          label="Description"
+          multiline
+          rows={4}
+          defaultValue="Tell us something about your next trip"
+          variant="filled"
+        />
       </div>
-      
-    <div className="text">
-    In this section you can see your travel packages with the estimated cost according to the added concepts.
+      </Box>
+      <Button
+              color="secondary"
+              variant="contained"
+              size="large"
+              href="/alltrips"
+              sx={{ minWidth: 200, marginTop: 3, padding: 0.5}}
+            >
+              See all trips
+            </Button>
     </div>
-
-      <AppFooter />
+    <AppFooter />
     </React.Fragment>
   );
 }
 
-export default withRoot(Reviews);
+export default withRoot(Trips);

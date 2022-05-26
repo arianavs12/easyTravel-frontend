@@ -1,69 +1,142 @@
-import { Button, Input } from '@mui/material'
 import axios from 'axios'
-import React, { useState, useEffect } from 'react'
+import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
-import EditIcon from '@mui/icons-material/Edit';
+import Stack from '@mui/material/Stack';
+import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import TextField from '@mui/material/TextField';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
+import Button from '@mui/material/Button';
+import AppFooter from "../modules/views/AppFooter";
+import AppAppBar from "../modules/views/AppAppBar";
+import './detailTrip.css';
 
 
 
-const DetailTrip = (props) => {
+
+export const DetailTrip = (props) => {
     const { id } = useParams()
-    const [trip, setTrip] = useState({})
-    //toggle
+    const [trip, setTrip] = useState ({})
+    const [value, setValue] = React.useState('Hotel')
     const [showEdit, setShowEdit] = useState(false)
-    useEffect(() => {
-        axios.get(`http://localhost:5005/trips/details/${id}`)
-            .then(lainfo => {
-                console.log(lainfo)
-                setTrip(lainfo.data)
-            })
-            .catch(console.log)
-    }, [id])
-    return (
-        <div>
 
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+    
+    useEffect(() =>{
+        axios.get(`http://localhost:5005/trips/details/${id}`)
+        .then( lainfo => {
+            console.log(lainfo)
+            setTrip(lainfo.data)
+        })
+        .catch(console.log)
+    }, [id])
+  return (
+    <div>
+        <div className='details'>
+
+        
+            <AppAppBar />
             {showEdit === false && (
-                <>
-                    <Image src={trip.photo} alt={trip.destination} width={200} />
-                    <p>{trip.typeOfLodging}</p>
-                    <p>{trip.description}</p>
-                    <p>{trip.budget}</p>
-                </>
+            <>
+
+            {/* <img src={trip.photo}/> en caso que se agregue foto al viaje  */}
+            <p>Destination: {trip.destination}</p>
+            <p>Budget: {trip.budget}</p>
+            <p>Type of Lodjing: {trip.typeOfLodjing}</p>
+            <p>Type of Transport: {trip.typeOfTransport}</p>
+            <p>Description: {trip.description}</p>
+
+            </>
+
             )}
             {
-                showEdit === true && (
-                    <div>
-                        <Input placeholder='Destino' value={trip.destination} />
-                        <Input placeholder='Transporte' value={trip.typeOfTransport} />
-                        <Input placeholder='Alojamiento' value={trip.age} />
-                        <Input placeholder='Foto' value={trip.photo} />
-                        {props.user?._id}
-                        <Button>Actualizar</Button>
-                    </div>
-                )
+            showEdit === true && (
+            <>
+             <Stack
+                component="form"
+                sx={{width: '25ch'}}
+                spacing={2}
+                noValidate
+                autoComplete="off"
+                >
+            <TextField
+                hiddenLabel
+                id="filled-hidden-label-small"
+                value={trip.destination}
+                variant="filled"
+                size="small"
+                />
+            <TextField
+                hiddenLabel
+                id="filled-hidden-label-normal"
+                value={trip.budget}
+                variant="filled"
+                />
+            <TextField
+                hiddenLabel
+                id="filled-hidden-label-normal"
+                value={trip.description}
+                variant="filled"
+                />
+            </Stack>
+            <FormControl>
+                <FormLabel id="demo-controlled-radio-buttons-group">Type of lodjing</FormLabel>
+                <RadioGroup
+                    aria-labelledby="demo-controlled-radio-buttons-group"
+                    name="controlled-radio-buttons-group"
+                    value={value}
+                    onChange={handleChange}
+                    >
+                    <FormControlLabel value={"Hotel"} control={<Radio />} label="Hotel" />
+                    <FormControlLabel value="Hostal" control={<Radio />} label="Hostal" />
+                    <FormControlLabel value="Airbnb" control={<Radio />} label="Airbnb" />
+                    <FormControlLabel value="No charge" control={<Radio />} label="No charge" />
+                </RadioGroup>
+            </FormControl>
+            <FormControl>
+                <FormLabel id="demo-controlled-radio-buttons-group">Type of transport</FormLabel>
+                <RadioGroup
+                    aria-labelledby="demo-controlled-radio-buttons-group"
+                    name="controlled-radio-buttons-group"
+                    value={value}
+                    onChange={handleChange}
+                    >
+                    <FormControlLabel value="Aereo" control={<Radio />} label="Aereo" />
+                    <FormControlLabel value="Car" control={<Radio />} label="Car" />
+                </RadioGroup>
+            </FormControl>
+            {props.user?._id}
+            <div>
+                <Button variant="contained" color="success">Update</Button>
+            </div>
+        
+            </>
+            )
             }
 
-            <div title="Editar">
-                <Button
-                    color="secondary"
-                    variant="contained"
-                    size="large"
-                    href="/trips"
-                    sx={{ minWidth: 200,}}
-                    icon={<EditIcon />}
-                    onClick={() => setShowEdit(true)}
-                />
-            </div>
-            <div title="Eliminar">
-                <Button color="secondary"
-                    variant="contained"
-                    size="large"
-                    href="/trips"
-                    sx={{ minWidth: 200,}} icon={<DeleteIcon />} />
-            </div>
-        </div >
-    )
-}
 
-export default DetailTrip
+            <Stack direction="row" alignItems="center" spacing={1}>
+                <IconButton aria-label="delete" size="large">
+                    <DeleteIcon fontSize="inherit" />
+                </IconButton>
+                <IconButton 
+                    aria-label="edit" 
+                    size="large"
+                    onClick={() => setShowEdit(true)}
+                    >
+                    <EditIcon fontSize="inherit" />
+                </IconButton>
+            </Stack>
+        </div>
+            <AppFooter />
+    </div>
+    
+  )
+}

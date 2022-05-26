@@ -11,6 +11,7 @@ import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import NavigationIcon from '@mui/icons-material/Navigation';
 import './reviews.css'
+import Button from "../modules/components/Button";
 
 
 function srcset(image, size, rows = 1, cols = 1) {
@@ -115,6 +116,17 @@ function Reviews() {
       </Fab>
     </Box>
   </div>
+  <div>
+            <Button
+              color="secondary"
+              variant="contained"
+              size="large"
+              href="/allreviews"
+              sx={{ minWidth: 200, marginTop: 3, padding: 0.5}}
+            >
+              SEE ALL REVIEWS
+            </Button>
+          </div>
 </div>
 <AppFooter />
 </React.Fragment>

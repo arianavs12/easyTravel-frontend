@@ -13,6 +13,8 @@ import Trips from "./pages/Trips";
 import Profile from "./pages/Profile";
 import AllTrips from "./pages/AllTrips"
 import AllReviews from "./pages/AllReviews"
+import { DetailTrip } from "./pages/DetailTrip";
+
 
 
 function App() {
@@ -70,6 +72,7 @@ function App() {
         <Route path="/trips" element={<Trips />} />
         <Route path="/alltrips" element={<AllTrips />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/detail/:id" element={<DetailTrip />} />
       </Routes>
     </div>
   );

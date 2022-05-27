@@ -13,7 +13,7 @@ import axios from 'axios';
 function AllTrips (props) {
   const [trips, setTrips] = useState([])
   useEffect(() => {
-    axios.get('http://localhost:5005/trips/alltrips')
+    axios.get(`${process.env.REACT_APP_SERVER_URL}/trips/alltrips`)
     .then(datos => setTrips(datos.data))
     .catch(console.log)
   },[])

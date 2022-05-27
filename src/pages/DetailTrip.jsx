@@ -30,7 +30,7 @@ export const DetailTrip = (props) => {
   };
     
     useEffect(() =>{
-        axios.get(`http://localhost:5005/trips/details/${id}`)
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/trips/details/${id}`)
         .then( lainfo => {
             console.log(lainfo)
             setTrip(lainfo.data)

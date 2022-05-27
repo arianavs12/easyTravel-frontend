@@ -37,7 +37,7 @@ function Trips(props) {
     e.preventDefault();
     
     // axios.post(`${process.env.REACT_APP_SERVER_URL}/perfil/equipos`, {nombre, imagen})
-    axios.post(`http://localhost:5005/trips/create`, {destination: destination, typeOfTransport: transport, typeOfLodjing: hospedaje,budget: budget, description: description })
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/trips/create`, {destination: destination, typeOfTransport: transport, typeOfLodjing: hospedaje,budget: budget, description: description })
     .then( datos => {
       console.log(datos)
     })

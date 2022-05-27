@@ -12,6 +12,7 @@ import Button from "../modules/components/Button";
 import TextField from '@mui/material/TextField';
 import React, {useState} from 'react';
 import axios from "axios";
+import { useNavigate } from 'react-router-dom'
 
 
 function srcset(image, size, rows = 1, cols = 1) {
@@ -31,7 +32,7 @@ function Reviews(props) {
 
   function handleSubmit(e){
       console.log(title, description)
-      axios.post('http://localhost:5005/reviews/create', {title, description})
+      axios.post(`${process.env.REACT_APP_SERVER_URL}/reviews/create`, {title, description})
       .then (newMessage => {
         console.log(newMessage)
       })

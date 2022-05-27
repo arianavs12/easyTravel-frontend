@@ -6,6 +6,9 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import Link from "@mui/material/Link";
+import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
+import './alltrips.css';
 import axios from 'axios';
 
 function AllReviews (props) {
@@ -18,12 +21,16 @@ function AllReviews (props) {
   return (
     <React.Fragment>
       <AppAppBar {...props}/>
-      <div>
-        todas las reseñas
+      <div className='posts'>
+        <Typography variant='h4' marginTop={5} marginLeft={5}>All the reviews</Typography>
+          <Link  marginLeft={160} href='/reviews'>
+            <ArrowBackRoundedIcon/>
+          </Link>
+        
         {
           mensaje.map(reviews => {
             return <div>
-            <Card key={reviews._id} sx={{ maxWidth: 345, marginLeft:5, marginTop:5 }}>
+            <Card key={reviews._id} sx={{ maxWidth: 345, marginLeft:30, marginTop:5, }}>
             <CardMedia component="img" height="140" image="/images/vacaoffice.webp" alt="viaje" />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">

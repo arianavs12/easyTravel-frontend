@@ -8,7 +8,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Link from "@mui/material/Link";
+import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import axios from 'axios';
+import './alltrips.css';
 
 function AllTrips (props) {
   const [trips, setTrips] = useState([])
@@ -20,12 +22,15 @@ function AllTrips (props) {
   return (
     <React.Fragment>
       <AppAppBar {...props}/>
-      <div>
-        Estos son todos tus viajes
-        {
+      <div className='posts'>
+      <Typography variant='h4' marginTop={5} marginLeft={5}>All your trips</Typography>
+      <Link  marginLeft={160} href='/trips'>
+        <ArrowBackRoundedIcon/>
+      </Link>
+                {
           trips.map(trips => {
             return <div key={trips._id}>
-            <Card sx={{ maxWidth: 345, marginLeft:5, marginTop:5 }}>
+            <Card sx={{ maxWidth: 345, marginLeft:30, marginTop:5, }}>
             <CardMedia component="img" height="140" image="/images/vacaoffice.webp" alt="viaje" />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -46,6 +51,7 @@ function AllTrips (props) {
           })
         }
       </div>
+     
       
       <AppFooter />
     </React.Fragment>

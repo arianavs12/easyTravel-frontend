@@ -33,7 +33,7 @@ function Profile(props) {
               Change photo
             </Button>
           </div>
-          
+          <img src="./images/wheretogo.jpg" alt="" width={500} height={350} />
         </div>
         <div className="buttons">
           <div>

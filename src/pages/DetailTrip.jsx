@@ -112,7 +112,6 @@ export const DetailTrip = (props) => {
                     <FormControlLabel value="Car" control={<Radio />} label="Car" />
                 </RadioGroup>
             </FormControl>
-            {props.user?._id}
             <div>
                 <Button variant="contained" color="success">Update</Button>
             </div>

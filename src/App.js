@@ -14,6 +14,7 @@ import Profile from "./pages/Profile";
 import AllTrips from "./pages/AllTrips"
 import AllReviews from "./pages/AllReviews"
 import { DetailTrip } from "./pages/DetailTrip";
+import Thanks from "./pages/thanks"
 
 
 
@@ -72,6 +73,7 @@ function App() {
         <Route path="/alltrips" element={<AllTrips authenticate={authenticate} user={user} handleLogout={handleLogout}/>} />
         <Route path="/profile" element={<Profile authenticate={authenticate} user={user} handleLogout={handleLogout}/>} />
         <Route path="/detail/:id" element={<DetailTrip authenticate={authenticate} user={user} handleLogout={handleLogout}/>} />
+        <Route path="/thanks" element={<Thanks authenticate={authenticate} user={user} handleLogout={handleLogout}/>} />
       </Routes>
     </div>
   );

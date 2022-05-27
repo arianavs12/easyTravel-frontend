@@ -54,6 +54,7 @@ function ProductCTA() {
                 color="primary"
                 variant="contained"
                 sx={{ width: "100%" }}
+                href='/thanks'
               >
                 Keep me updated
               </Button>

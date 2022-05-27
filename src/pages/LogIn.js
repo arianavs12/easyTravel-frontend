@@ -75,34 +75,6 @@ function SignIn({ authenticate }) {
               noValidate
               sx={{ mt: 6 }}
             >
-              {/* <Field
-                autoComplete="email"
-                autoFocus
-                component={RFTextField}
-                disabled={submitting || sent}
-                fullWidth
-                label="Email"
-                margin="normal"
-                name="email"
-                required
-                size="large"
-                value={'hola'}
-                onChange={(event) => setEmail(event.target.value)}
-              />
-               <Field
-                fullWidth
-                size="large"
-                component={RFTextField}
-                disabled={submitting || sent}
-                required
-                name="password"
-                autoComplete="current-password"
-                label="Password"
-                type="password"
-                margin="normal"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-              /> */}
               <TextField
                  fullWidth
                  label="Username"

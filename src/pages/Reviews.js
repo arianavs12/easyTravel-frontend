@@ -28,13 +28,14 @@ function Reviews(props) {
 
   const [title, setTitle] = useState ("")
   const [description, setDescription] = useState ("")
+  const navigate = useNavigate()
 
 
   function handleSubmit(e){
       console.log(title, description)
       axios.post(`${process.env.REACT_APP_SERVER_URL}/reviews/create`, {title, description})
       .then (newMessage => {
-        console.log(newMessage)
+        navigate('/allreviews')
       })
       .catch(err => console.log(err))
   }
@@ -54,18 +55,19 @@ function Reviews(props) {
   return (
     <React.Fragment>
     <AppAppBar {...props}/>
-    <Typography variant='h4' color='#26a69a' sx={{ paddingTop: 3, paddingLeft: 3 }}>
+    <Typography variant='h4' color='#26a69a' sx={{ paddingTop: 2, paddingLeft: 3 }}>
     Share your experiences, we would love to know how you enjoyed your vacation and what advice you give us.
     </Typography>
-  <div className="collage">
-  <div className="collage1">
-  <Box
+    <div className="collage">
+    <div className="collage1">
+    <Box
       component="form"
       sx={{
         '& .MuiTextField-root': { m: 1, width: '25ch' },
       }}
       noValidate
       autoComplete="off"
+      marginRight={60}
     >
       <div>
         <Typography>Title</Typography>
@@ -113,7 +115,7 @@ function Reviews(props) {
  </div>
  <div className="addContent">
  
-    <Box sx={{ '& > :not(style)': { m: 1 } }}>
+    <Box sx={{ '& > :not(style)': { m: 1 }, marginLeft: 18 }}>
       <Fab 
       onClick={handleSubmit}
       variant="extended">
@@ -128,7 +130,7 @@ function Reviews(props) {
       variant="contained"
       size="large"
       href="/allreviews"
-      sx={{ minWidth: 200, marginTop: 3, padding: 0.5}}
+      sx={{ minWidth: 200, marginTop: 3, padding: 0.5, marginLeft: 10}}
     >
       SEE ALL REVIEWS
     </Button>

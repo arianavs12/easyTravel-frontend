@@ -7,11 +7,14 @@ import './trips.css'
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 function Trips(props) {
 
   const [type, setType] = React.useState('');
+
+  const navigate = useNavigate()
 
   const handleChange = (event) => {
     setType(event.target.value);
@@ -25,10 +28,12 @@ function Trips(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log({destination, typeOfTransport: transport, typeOfLodjing: hospedaje,budget, description })
     
     axios.post(`${process.env.REACT_APP_SERVER_URL}/trips/create`, {destination: destination, typeOfTransport: transport, typeOfLodjing: hospedaje,budget: budget, description: description })
     .then( datos => {
       console.log(datos)
+      navigate("/alltrips")
     })
     .catch( error => console.log(error))
   }
@@ -115,7 +120,6 @@ function Trips(props) {
           spacing={2}
           noValidate
           autoComplete="off"
-          onSubmit={handleSubmit}
           > 
         <Typography>Destination</Typography>
         <TextField onChange={ (event) => setDestination(event.target.value)}
@@ -150,9 +154,8 @@ function Trips(props) {
           
       <div>
         <Button 
-        color="secondary" 
-        type="submit"
-                
+          color="secondary" 
+          onClick={handleSubmit}  
         >
         Add Trip
         </Button>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { login } from "../services/auth";
 import { useNavigate } from "react-router-dom";
-
 import * as PATHS from "../utils/paths";
 import * as USER_HELPERS from "../utils/userToken";
 import { Form, FormSpy } from "react-final-form";
@@ -11,9 +10,7 @@ import TextField from '@mui/material/TextField';
 import Typography from "../modules/components/Typography";
 import AppFooter from "../modules/views/AppFooter";
 import AppAppBar from "../modules/views/AppAppBar";
-
 import AppForm from "../modules/views/AppForm";
-// import { email, required } from "../modules/form/validation";
 import FormButton from "../modules/form/FormButton";
 import FormFeedback from "../modules/form/FormFeedback";
 import withRoot from "../modules/withRoot";

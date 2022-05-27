@@ -51,9 +51,7 @@ function AllTrips (props) {
           })
         }
       </div>
-     
-      
-      <AppFooter />
+     <AppFooter />
     </React.Fragment>
     
 

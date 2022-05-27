@@ -40,11 +40,6 @@ function Reviews(props) {
       .catch(err => console.log(err))
   }
 
-  /* const [values, setValues] = React.useState({
-    title: "",
-    description: "",
-  });
-   */
 
   const [value, setValue] = React.useState('Controlled');
 

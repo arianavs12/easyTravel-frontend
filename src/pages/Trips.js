@@ -26,7 +26,6 @@ function Trips(props) {
   function handleSubmit(e) {
     e.preventDefault();
     
-    // axios.post(`${process.env.REACT_APP_SERVER_URL}/perfil/equipos`, {nombre, imagen})
     axios.post(`${process.env.REACT_APP_SERVER_URL}/trips/create`, {destination: destination, typeOfTransport: transport, typeOfLodjing: hospedaje,budget: budget, description: description })
     .then( datos => {
       console.log(datos)
@@ -160,7 +159,7 @@ function Trips(props) {
      </div>
       </Stack>
       <div>
-        <img src="./images/globos.jpg" width={400}/>
+        <img src="./images/globos.jpg" alt='globos' width={400}/>
       </div>
     </div>
       <div>

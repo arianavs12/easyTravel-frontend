@@ -46,7 +46,6 @@ export const DetailTrip = (props) => {
             {showEdit === false && (
             <>
 
-            {/* <img src={trip.photo}/> en caso que se agregue foto al viaje  */}
             <p>Destination: {trip.destination}</p>
             <p>Budget: {trip.budget}</p>
             <p>Type of Lodjing: {trip.typeOfLodjing}</p>

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { getLoggedIn, logout } from "./services/auth";
-//import routes from "./config/routes";
 import * as USER_HELPERS from "./utils/userToken";
 import withRoot from "./modules/withRoot";
 import SignUp from "./pages/SignUp";

@@ -46,7 +46,6 @@ function AllReviews (props) {
           })
         }
       </div>
-      
       <AppFooter />
     </React.Fragment>
     

@@ -23,15 +23,6 @@ function Profile(props) {
               sx={{ width: 200, height: 180}}
               variant="square"
             />
-            <Button 
-              color="secondary"
-              variant="contained"
-              size="large"
-
-              sx={{ minWidth: 200, padding: 0.5, marginTop: 1 }}
-            >
-              Change photo
-            </Button>
           </div>
           <img src="./images/wheretogo.jpg" alt="" width={500} height={350} />
         </div>

@@ -2,9 +2,9 @@ import axios from 'axios'
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import Stack from '@mui/material/Stack';
-import IconButton from '@mui/material/IconButton';
+/* import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
+import EditIcon from '@mui/icons-material/Edit'; */
 import TextField from '@mui/material/TextField';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -120,7 +120,7 @@ export const DetailTrip = (props) => {
             }
 
 
-            <Stack direction="row" alignItems="center" spacing={1}>
+            {/* <Stack direction="row" alignItems="center" spacing={1}>
                 <IconButton aria-label="delete" size="large">
                     <DeleteIcon fontSize="inherit" />
                 </IconButton>
@@ -131,7 +131,7 @@ export const DetailTrip = (props) => {
                     >
                     <EditIcon fontSize="inherit" />
                 </IconButton>
-            </Stack>
+            </Stack> */}
         </div>
             <AppFooter />
     </div>

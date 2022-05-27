@@ -10,16 +10,16 @@ import Typography from '@mui/material/Typography';
 import Link from "@mui/material/Link";
 import axios from 'axios';
 
-function AllTrips () {
+function AllTrips (props) {
   const [trips, setTrips] = useState([])
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_SERVER_URL}/trips/alltrips`)
+    axios.get('http://localhost:5005/trips/alltrips')
     .then(datos => setTrips(datos.data))
     .catch(console.log)
   },[])
   return (
     <React.Fragment>
-      <AppAppBar />
+      <AppAppBar {...props}/>
       <div>
         Estos son todos tus viajes
         {

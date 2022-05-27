@@ -8,16 +8,16 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
 
-function AllReviews () {
+function AllReviews (props) {
   const [mensaje, setMensaje] = useState([])
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_SERVER_URL}/reviews/allreviews`)
+    axios.get('http://localhost:5005/reviews/allreviews')
     .then(datos => setMensaje(datos.data.reviews))
     .catch(console.log)
   },[])
   return (
     <React.Fragment>
-      <AppAppBar />
+      <AppAppBar {...props}/>
       <div>
         todas las reseñas
         {

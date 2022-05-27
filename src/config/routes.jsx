@@ -21,14 +21,14 @@ const routes = (props) => {
       path: PATHS.LOGINPAGE,
       element: <Login {...props} />,
     },
-    /* {
+    {
       path: PATHS.PROTECTEDPAGE,
       element: user ? (
         <ProtectedPage {...props} />
       ) : (
         <Navigate to={PATHS.LOGINPAGE} replace />
       ),
-    },  */
+    }, 
   ];
 };
 

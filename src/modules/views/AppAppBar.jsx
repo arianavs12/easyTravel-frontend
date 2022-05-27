@@ -30,7 +30,31 @@ function AppAppBar(props) {
 
           { props?.user && (
             <>
-                <button>aca si ya hay user - { props?.user?.username }  { props?.user?._id }</button>
+                <Link
+                variant="h6"
+                underline="none"
+                href='/profile'
+                sx={{ ...rightLink, color: "#ff4081" }}
+
+                >{ props?.user?.username }</Link>
+                <Link
+                variant="h6"
+                underline="none"
+                href='/trips'
+                sx={{ ...rightLink, color: "#ff4081" }}
+                >
+                {"my trips"}
+                </Link>
+
+                <Link
+                variant="h6"
+                underline="none"
+                href= {PATHS.LOGINPAGE}
+                onClick={props.handleLogout}
+                sx={{ ...rightLink, color: "#ff4081" }}
+                >
+                {"Log Out"}
+                </Link>
             </>
           )}
 
@@ -57,6 +81,8 @@ function AppAppBar(props) {
             </Link>
             </>
             )}
+
+              
           </Box>
         </Toolbar>
       </AppBar>

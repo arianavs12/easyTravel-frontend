@@ -53,7 +53,7 @@ function SignIn({ authenticate }) {
 
   return (
     <React.Fragment>
-      <AppAppBar />
+      <AppAppBar/>
       <AppForm>
         <React.Fragment>
           <Typography variant="h3" gutterBottom marked="center" align="center">

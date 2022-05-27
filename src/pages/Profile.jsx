@@ -8,10 +8,11 @@ import './profile.css';
 import Typography from "../modules/components/Typography";
 
 
-function Profile() {
+function Profile(props) {
+  console.log(props)
   return (
     <React.Fragment>
-      <AppAppBar />
+      <AppAppBar {...props} />
       <Typography variant="h4" sx={{padding: 1, marginLeft: 15.5}}>
         WELCOME!
       </Typography>

@@ -13,7 +13,7 @@ import FormButton from "../modules/form/FormButton";
 import FormFeedback from "../modules/form/FormFeedback";
 import withRoot from "../modules/withRoot";
 
-function SignUp() {
+function SignUp(props) {
   const [sent, setSent] = React.useState(false);
   const [ name,setName ] = React.useState("");
   
@@ -42,7 +42,7 @@ function SignUp() {
 
   return (
     <React.Fragment>
-      <AppAppBar />
+      <AppAppBar {...props}/>
       <AppForm>
         <React.Fragment>
           <Typography variant="h3" gutterBottom marked="center" align="center">

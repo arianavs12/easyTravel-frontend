@@ -42,7 +42,7 @@ export const DetailTrip = (props) => {
         <div className='details'>
 
         
-            <AppAppBar />
+            <AppAppBar {...props}/>
             {showEdit === false && (
             <>
 

@@ -24,7 +24,7 @@ function srcset(image, size, rows = 1, cols = 1) {
 }
 
 
-function Reviews() {
+function Reviews(props) {
   const [values, setValues] = React.useState({
     title: "",
     description: "",
@@ -59,7 +59,7 @@ function Reviews() {
   }
   return (
     <React.Fragment>
-    <AppAppBar />
+    <AppAppBar {...props}/>
     <Typography variant='h4' color='#26a69a' sx={{ paddingTop: 3, paddingLeft: 3 }}>
     Share your experiences, we would love to know how you enjoyed your vacation and what advice you give us.
     </Typography>
@@ -104,12 +104,6 @@ function Reviews() {
  <div className="addContent">
  
     <Box sx={{ '& > :not(style)': { m: 1 } }}>
-      <Fab color="primary" aria-label="add">
-        <AddIcon />
-      </Fab>
-      <Fab color="secondary" aria-label="edit">
-        <EditIcon />
-      </Fab>
       <Fab variant="extended">
         <NavigationIcon sx={{ mr: 1, type:"submit" }} />
         Share
@@ -117,16 +111,16 @@ function Reviews() {
     </Box>
   </div>
   <div>
-            <Button
-              color="secondary"
-              variant="contained"
-              size="large"
-              href="/allreviews"
-              sx={{ minWidth: 200, marginTop: 3, padding: 0.5}}
-            >
-              SEE ALL REVIEWS
-            </Button>
-          </div>
+    <Button
+      color="secondary"
+      variant="contained"
+      size="large"
+      href="/allreviews"
+      sx={{ minWidth: 200, marginTop: 3, padding: 0.5}}
+    >
+      SEE ALL REVIEWS
+    </Button>
+  </div>
 </div>
 <AppFooter />
 </React.Fragment>

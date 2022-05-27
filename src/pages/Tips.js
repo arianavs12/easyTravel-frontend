@@ -6,10 +6,10 @@ import Typography from "../modules/components/Typography";
 import { Container } from "@mui/system";
 import './tips.css'
 
-function Tips() {
+function Tips(props) {
   return (
     <React.Fragment>
-      <AppAppBar />
+      <AppAppBar {...props}/>
       <Container>
       <div className="tips-container" >
         <div>

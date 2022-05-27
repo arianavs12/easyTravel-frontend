@@ -44,7 +44,6 @@ function App() {
     setIsLoading(true);
     logout(accessToken).then((res) => {
       if (!res.status) {
-        // deal with error here
         console.error("Logout was unsuccessful: ", res);
       }
       USER_HELPERS.removeUserToken();
@@ -64,7 +63,6 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="*" element={<Home authenticate={authenticate} user={user} handleLogout={handleLogout}/>}/>
-
         <Route path="/signup" element={<SignUp authenticate={authenticate} user={user} handleLogout={handleLogout}/>}/>
         <Route path="/login" element={<LogIn authenticate={authenticate} user={user} handleLogout={handleLogout}/>} />
         <Route path="/reviews" element={<Reviews authenticate={authenticate} user={user} handleLogout={handleLogout}/>} />
@@ -73,7 +71,6 @@ function App() {
         <Route path="/trips" element={<Trips authenticate={authenticate} user={user} handleLogout={handleLogout}/>} />
         <Route path="/alltrips" element={<AllTrips authenticate={authenticate} user={user} handleLogout={handleLogout}/>} />
         <Route path="/profile" element={<Profile authenticate={authenticate} user={user} handleLogout={handleLogout}/>} />
-
         <Route path="/detail/:id" element={<DetailTrip authenticate={authenticate} user={user} handleLogout={handleLogout}/>} />
       </Routes>
     </div>

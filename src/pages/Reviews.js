@@ -1,4 +1,3 @@
-import * as React from "react";
 import AppFooter from "../modules/views/AppFooter";
 import AppAppBar from "../modules/views/AppAppBar";
 import withRoot from "../modules/withRoot";
@@ -7,11 +6,12 @@ import ImageListItem from '@mui/material/ImageListItem';
 import Typography from "../modules/components/Typography";
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
-import EditIcon from '@mui/icons-material/Edit';
 import NavigationIcon from '@mui/icons-material/Navigation';
 import './reviews.css'
 import Button from "../modules/components/Button";
+import TextField from '@mui/material/TextField';
+import React, {useState} from 'react';
+import axios from "axios";
 
 
 function srcset(image, size, rows = 1, cols = 1) {
@@ -23,48 +23,74 @@ function srcset(image, size, rows = 1, cols = 1) {
   };
 }
 
-
 function Reviews(props) {
-  const [values, setValues] = React.useState({
+
+  const [title, setTitle] = useState ("")
+  const [description, setDescription] = useState ("")
+
+
+  function handleSubmit(e){
+      console.log(title, description)
+      axios.post('http://localhost:5005/reviews/create', {title, description})
+      .then (newMessage => {
+        console.log(newMessage)
+      })
+      .catch(err => console.log(err))
+  }
+
+  /* const [values, setValues] = React.useState({
     title: "",
     description: "",
   });
-  function handleSubmit(evt) {
-    /*
-      Previene el comportamiento default de los
-      formularios el cual recarga el sitio
-    */
-    evt.preventDefault();
-    // Aquí puedes usar values para enviar la información
-  }
-  function handleChange(evt) {
-    /*
-      evt.target es el elemento que ejecuto el evento
-      name identifica el input y value describe el valor actual
-    */
-    const { target } = evt;
-    const { name, value } = target;
-    /*
-      Este snippet:
-      1. Clona el estado actual
-      2. Reemplaza solo el valor del
-         input que ejecutó el evento
-    */
-    const newValues = {
-      ...values,
-      [name]: value,
-    };
-    // Sincroniza el estado de nuevo
-    setValues(newValues);
-  }
+   */
+
+  const [value, setValue] = React.useState('Controlled');
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
   return (
     <React.Fragment>
     <AppAppBar {...props}/>
     <Typography variant='h4' color='#26a69a' sx={{ paddingTop: 3, paddingLeft: 3 }}>
     Share your experiences, we would love to know how you enjoyed your vacation and what advice you give us.
     </Typography>
-<div className="collage">
+  <div className="collage">
   <div className="collage1">
+  <Box
+      component="form"
+      sx={{
+        '& .MuiTextField-root': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <div>
+        <Typography>Title</Typography>
+        <TextField
+          id="filled-textarea"
+          label="Multiline Placeholder"
+          placeholder="Placeholder"
+          multiline
+          variant="filled"
+          value={title}
+          onChange={(evento) => setTitle(evento.target.value)}
+          
+        />
+        <Typography>Description</Typography>
+        <TextField
+          id="filled-multiline-static"
+          label="Multiline"
+          multiline
+          rows={4}
+          defaultValue=""
+          variant="filled"
+          value={description}
+          onChange={(evento) => setDescription(evento.target.value)}
+        />
+      </div>
+    </Box>
   <ImageList
       sx={{ width: 500, height: 450, padding:3}}
       variant="quilted"
@@ -83,28 +109,13 @@ function Reviews(props) {
     </ImageList>
  </div>
  <div className="form">
- <form onSubmit={handleSubmit}>
-      <label htmlFor="title">Title</label>
-      <input
-        name="title"
-        type="text"
-        value={values.title}
-        onChange={handleChange}
-      />
-      <label htmlFor="password">Description</label>
-      <input
-        name="description"
-        type="text"
-        value={values.description}
-        onChange={handleChange}
-      />
-      <button type="submit">Share</button>
-    </form>
  </div>
  <div className="addContent">
  
     <Box sx={{ '& > :not(style)': { m: 1 } }}>
-      <Fab variant="extended">
+      <Fab 
+      onClick={handleSubmit}
+      variant="extended">
         <NavigationIcon sx={{ mr: 1, type:"submit" }} />
         Share
       </Fab>
